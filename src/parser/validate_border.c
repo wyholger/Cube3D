@@ -1,0 +1,77 @@
+#include "../../include/cube3d.h"
+
+void	first_validate_border(t_data *data, t_list *tmp_0)
+{
+	int i;
+
+	i = 0;
+	while (tmp_0->word[i])
+	{
+		if (tmp_0->word[i] == '0')
+			exit_after_validate(data, 6);
+		i++;
+	}
+}
+
+void	zero_check(t_data *data, int i, t_list *tmp_0, t_list *tmp_1)
+{
+	t_list *tmp_2;
+
+	tmp_2 = tmp_1->next;
+	if (i == 0 || i == data->max_len_map - 1 || \
+	tmp_1->word[i - 1] == ' ' || tmp_1->word[i + 1] == ' ' || \
+	tmp_0->word[i] == ' ' || tmp_0->word[i - 1] == ' ' || \
+	tmp_0->word[i + 1] == ' ' || tmp_2->word[i] == ' ' || \
+	tmp_2->word[i - 1] == ' ' || tmp_2->word[i + 1] == ' ')
+	{
+		exit_after_validate(data, 6);
+	}
+}
+
+void	midl_validate_border(t_data *data, t_list *tmp_0, t_list *tmp_1)
+{
+	int i;
+
+	i = 0;
+	while (tmp_1->word[i])
+	{
+		if (tmp_1->word[i] == '0')
+			zero_check(data, i, tmp_0, tmp_1);
+		i++;
+	}
+}
+
+void	end_validate_border(t_data *data, t_list *tmp_1)
+{
+	int i;
+
+	i = 0;
+	while (tmp_1->word[i])
+	{
+		if (tmp_1->word[i] == '0')
+			exit_after_validate(data, 6);
+		i++;
+	}
+}
+
+void	validate_border(t_data *data)
+{
+	t_list	*tmp_0;
+	t_list	*tmp_1;
+	t_list	*tmp_2;
+
+	if (ft_lstsize(data->map_string) < 3)
+		exit_after_validate(data, 5);
+	tmp_0 = data->map_string;
+	tmp_1 = data->map_string->next;
+	tmp_2 = data->map_string->next->next;
+	first_validate_border(data, tmp_0);
+	while (tmp_2)
+	{
+		midl_validate_border(data, tmp_0, tmp_1);
+		tmp_0 = tmp_1;
+		tmp_1 = tmp_2;
+		tmp_2 = tmp_2->next;
+	}
+	end_validate_border(data, tmp_1);
+}
