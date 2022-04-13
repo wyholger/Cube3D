@@ -11,7 +11,8 @@ SRCS		=	src/main.c\
                 src/parser/read_map.c\
                 src/parser/recording_map.c\
                 src/parser/validate_map.c\
-				src/parser/make_map_is_rectangle.c
+				src/parser/make_map_is_rectangle.c\
+				src/parser/validate_border.c
 
 HDR			=	include/cube3d.h
 
