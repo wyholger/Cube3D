@@ -6,7 +6,6 @@ void	init_null_data(t_data *data)
 	data->path_so = NULL;
 	data->path_we = NULL;
 	data->path_ea = NULL;
-	data->map_string = NULL;
 	data->map = NULL;
 	data->r_c = -1;
 	data->g_c = -1;

@@ -60,11 +60,11 @@ void	validate_border(t_data *data)
 	t_list	*tmp_1;
 	t_list	*tmp_2;
 
-	if (ft_lstsize(data->map_string) < 3)
+	if (ft_lstsize(data->map) < 3)
 		exit_after_validate(data, 5);
-	tmp_0 = data->map_string;
-	tmp_1 = data->map_string->next;
-	tmp_2 = data->map_string->next->next;
+	tmp_0 = data->map;
+	tmp_1 = data->map->next;
+	tmp_2 = data->map->next->next;
 	first_validate_border(data, tmp_0);
 	while (tmp_2)
 	{

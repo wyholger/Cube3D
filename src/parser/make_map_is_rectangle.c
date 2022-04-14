@@ -45,7 +45,7 @@ void	make_map_is_rectangle(t_data *data)
 	t_list	*tmp;
 	int		len;
 
-	tmp = data->map_string;
+	tmp = data->map;
 	while (tmp)
 	{
 		len = (int)ft_strlen(tmp->word);

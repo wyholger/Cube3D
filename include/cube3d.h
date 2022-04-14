@@ -18,7 +18,6 @@
 
 typedef struct s_data
 {
-	t_list	*map_string;
 	t_list	*map;
 	char	*path_no;
 	char	*path_so;

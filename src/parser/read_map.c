@@ -44,7 +44,7 @@ void recording_data_from_map(t_data *data, char *line)
 //{
 //	t_list *tmp;
 //
-//	tmp = data->map_string;
+//	tmp = data->map;
 //	while (tmp)
 //	{
 //		printf("Len = %d\n", (int)ft_strlen (tmp->word));

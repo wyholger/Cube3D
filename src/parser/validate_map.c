@@ -44,7 +44,7 @@ void	validate_map(t_data *data)
 
 	if (check_on_full_properties(data))
 		exit_after_validate(data, 1);
-	tmp = data->map_string;
+	tmp = data->map;
 	while (tmp)
 	{
 		validate_char(data, tmp);

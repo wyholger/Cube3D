@@ -3,7 +3,6 @@
 void	exit_after_validate(t_data *data, int flag_exit)
 {
 	free_data_path(data);
-	ft_lstclear(&data->map_string);
 	ft_lstclear(&data->map);
 	if (flag_exit == 1)
 		error(ERR_INVALID_PROPERT);
@@ -24,5 +23,5 @@ void	exit_after_validate(t_data *data, int flag_exit)
 void	exit_standard(t_data *data)
 {
 	free_data_path(data);
-	ft_lstclear(&data->map_string);
+	ft_lstclear(&data->map);
 }

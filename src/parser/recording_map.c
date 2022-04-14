@@ -18,5 +18,5 @@ void	recording_map(t_data *data, char *line)
 		data->flag_malloc_crash = 1;
 		return ;
 	}
-	ft_lstadd_back(&data->map_string, tmp);
+	ft_lstadd_back(&data->map, tmp);
 }
