@@ -17,6 +17,8 @@ void	exit_after_validate(t_data *data, int flag_exit)
 		error(ERR_TOO_SMALL_MAP);
 	if (flag_exit == 6)
 		error(ERR_OPEN_BORDER);
+	if (flag_exit == 7)
+		error(ERR_COLOR_FORMAT);
 }
 
 void	exit_standard(t_data *data)

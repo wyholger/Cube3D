@@ -13,6 +13,8 @@
 # define ERR_NO_CHARACTER "\033[0;31mError. Map does not contain any character. ('N' 'S' 'W' 'E')\033[0;0m"
 # define ERR_TOO_SMALL_MAP "\033[0;31mError. To small map\033[0;0m"
 # define ERR_OPEN_BORDER "\033[0;31mError. Open border map.\033[0;0m"
+# define ERR_COLOR_FORMAT "\033[0;31mError. No valid color format.\nNeed int (color > 0 and color < 256)\033[0;0m"
+
 
 typedef struct s_data
 {

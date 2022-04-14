@@ -40,19 +40,19 @@ void recording_data_from_map(t_data *data, char *line)
 		recording_map(data, line);
 }
 
-void print_len(t_data *data)
-{
-	t_list *tmp;
-
-	tmp = data->map_string;
-	while (tmp)
-	{
-		printf("Len = %d\n", (int)ft_strlen (tmp->word));
-		printf("|%s|\n", tmp->word);
-		tmp = tmp->next;
-	}
-	printf("H = %d\n", data->max_height_map);
-}
+//void print_len(t_data *data)
+//{
+//	t_list *tmp;
+//
+//	tmp = data->map_string;
+//	while (tmp)
+//	{
+//		printf("Len = %d\n", (int)ft_strlen (tmp->word));
+//		printf("|%s|\n", tmp->word);
+//		tmp = tmp->next;
+//	}
+//	printf("H = %d\n", data->max_height_map);
+//}
 
 void read_map(t_data *data, char **argv)
 {
@@ -64,10 +64,10 @@ void read_map(t_data *data, char **argv)
 	while (get_next_line(fd, &line))
 	{
 		recording_data_from_map(data, line);
-		printf("%s\n", line);
+//		printf("%s\n", line);
 		free(line);
 	}
-	printf("%s\n", line);
+//	printf("%s\n", line);
 	recording_data_from_map(data, line);
 	free(line);
 	make_map_is_rectangle(data);
