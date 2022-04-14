@@ -2,6 +2,7 @@
 # define CUBE3D_CUBE3D_H
 # include "../libft/libft.h"
 # include <stdio.h>
+# include "../minilibx/mlx.h"
 # define ERR_NUM_ARG "\033[0;31mError. Number arg error. You need ./cube3D <path_to_map>\033[0;0m"
 # define ERR_FILE_FORMAT "\033[0;31mError. File format should be <name>.cub\033[0;0m"
 # define ERR_FILE_OPEN "\033[0;31mError. Open file error.\033[0;0m"
@@ -71,9 +72,9 @@ void	zero_check(t_data *data, int i, t_list *tmp_0, t_list *tmp_1);
 
 /* _VALIDATE_COLOR_ */
 
-int		check_valid_color(t_data *data, char **for_split);
-int		check_color_is_int(t_data *data, char **for_split);
-int		check_str_is_int(t_data *data, char *for_split);
+int		check_valid_color(char **for_split);
+int		check_color_is_int(char **for_split);
+int		check_str_is_int(char *for_split);
 
 /* ===END_PARSER=== */
 

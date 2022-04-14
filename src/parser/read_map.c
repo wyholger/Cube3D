@@ -67,6 +67,7 @@ void read_map(t_data *data, char **argv)
 //		printf("%s\n", line);
 		free(line);
 	}
+	close(fd);
 //	printf("%s\n", line);
 	recording_data_from_map(data, line);
 	free(line);

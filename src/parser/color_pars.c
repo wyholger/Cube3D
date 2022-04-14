@@ -1,6 +1,6 @@
 #include "../../include/cube3d.h"
 
-int	check_str_is_int(t_data *data, char *for_split)
+int	check_str_is_int(char *for_split)
 {
 	int i;
 
@@ -14,16 +14,16 @@ int	check_str_is_int(t_data *data, char *for_split)
 	return (0);
 }
 
-int	check_color_is_int(t_data *data, char **for_split)
+int	check_color_is_int(char **for_split)
 {
-	if (check_str_is_int(data, for_split[0]) == 1 || \
-	check_str_is_int(data, for_split[1]) == 1|| \
-	check_str_is_int(data, for_split[2]) == 1)
+	if (check_str_is_int(for_split[0]) == 1 || \
+	check_str_is_int(for_split[1]) == 1|| \
+	check_str_is_int(for_split[2]) == 1)
 		return (1);
 	return (0);
 }
 
-int	check_valid_color(t_data *data, char **for_split)
+int	check_valid_color(char **for_split)
 {
 	int	tmp;
 	int	tmp2;
@@ -41,7 +41,7 @@ int	check_valid_color(t_data *data, char **for_split)
 	if (tmp < 0 || tmp > 255 || tmp2 < 0 || tmp2 > 255 \
 	|| tmp3 < 0 || tmp3 > 255)
 		flag_bad = 1;
-	if (check_color_is_int(data, for_split) == 1)
+	if (check_color_is_int(for_split) == 1)
 		flag_bad = 1;
 	return (flag_bad);
 }
@@ -53,7 +53,7 @@ void	color_pars(t_data *data, char *str, int f_c_flag)
 
 	flag_bad = 0;
 	for_split = ft_split(str, ',');
-	flag_bad = check_valid_color(data, for_split);
+	flag_bad = check_valid_color(for_split);
 	if (flag_bad == 1)
 	{
 		split_free(for_split);

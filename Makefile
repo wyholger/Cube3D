@@ -38,14 +38,17 @@ all:	$(NAME)
 
 $(NAME):	$(OBJS) Makefile
 		make -C libft
+		make -C minilibx
 		$(CC) $(FLAGS) $(MLX_FLAGS) $(SRCS) libft/libft.a -o $(NAME)
 
 clean:
 		${RM} ${OBJS}
 		$(MAKE) clean -C ./libft
+		$(MAKE) clean -C ./minilibx
 
 fclean:		clean
 		${RM} ${NAME}
 		$(MAKE) fclean -C ./libft
+		$(MAKE) clean -C ./minilibx
 
 re:		fclean all clean
