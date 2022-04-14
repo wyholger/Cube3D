@@ -61,7 +61,7 @@ void	make_map_is_rectangle(t_data *data);
 void	make_string_is_longer(t_data *data, t_list *list, int len);
 char	*make_string_spase_to_len(t_data *data, int len);
 
-/* _VALIDATE_ */
+/* __VALIDATE__ */
 
 void	validate_map(t_data *data);
 void	validate_border(t_data *data);
@@ -69,6 +69,12 @@ void	first_validate_border(t_data *data, t_list *tmp_0);
 void	midl_validate_border(t_data *data, t_list *tmp_0, t_list *tmp_1);
 void	end_validate_border(t_data *data, t_list *tmp_1);
 void	zero_check(t_data *data, int i, t_list *tmp_0, t_list *tmp_1);
+
+/* _VALIDATE_COLOR_ */
+
+int		check_valid_color(t_data *data, char **for_split);
+int		check_color_is_int(t_data *data, char **for_split);
+int		check_str_is_int(t_data *data, char *for_split);
 
 /* ===END_PARSER=== */
 
