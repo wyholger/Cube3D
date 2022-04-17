@@ -18,10 +18,15 @@ void	exit_after_validate(t_data *data, int flag_exit)
 		error(ERR_OPEN_BORDER);
 	if (flag_exit == 7)
 		error(ERR_COLOR_FORMAT);
+	if (flag_exit == 8)
+		error(ERR_OPEN_IMG);
+	if (flag_exit == 9)
+		error(ERR_MLX);
 }
 
 void	exit_standard(t_data *data)
 {
 	free_data_path(data);
 	ft_lstclear(&data->map);
+	mlx_destroy_window(data->mlx.mlx, data->mlx.mlx_win);
 }

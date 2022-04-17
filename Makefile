@@ -12,7 +12,9 @@ SRCS		=	src/main.c\
                 src/parser/recording_map.c\
                 src/parser/validate_map.c\
 				src/parser/make_map_is_rectangle.c\
-				src/parser/validate_border.c
+				src/parser/validate_border.c\
+				src/minimap/minimap.c\
+				src/mlx/mlx.c
 
 HDR			=	include/cube3d.h
 
@@ -28,7 +30,7 @@ UNAME_S		:= $(shell uname -s)
     ifeq ($(UNAME_S),Linux)
 		MLX_FLAGS = -Llibft -lft
 	else
-		MLX_FLAGS = -Llibft -lft -lmlx -lm -Ofast -framework OpenGL -framework AppKit
+		MLX_FLAGS = -Llibft -lft -lmlx -lm -Ofast -framework OpenGL -framework AppKit -lz
 	endif
 
 %.o : %.c $(HDR)
@@ -39,7 +41,7 @@ all:	$(NAME)
 $(NAME):	$(OBJS) Makefile
 		make -C libft
 		make -C minilibx
-		$(CC) $(FLAGS) $(MLX_FLAGS) $(SRCS) libft/libft.a -o $(NAME)
+		$(CC) $(FLAGS) $(MLX_FLAGS) $(SRCS) libft/libft.a minilibx/libmlx.a -o $(NAME)
 
 clean:
 		${RM} ${OBJS}

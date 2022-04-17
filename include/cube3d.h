@@ -1,8 +1,10 @@
 #ifndef CUBE3D_CUBE3D_H
 # define CUBE3D_CUBE3D_H
 # include "../libft/libft.h"
+//# include "cube3d.h"
 # include <stdio.h>
 # include "../minilibx/mlx.h"
+
 # define ERR_NUM_ARG "\033[0;31mError. Number arg error. You need ./cube3D <path_to_map>\033[0;0m"
 # define ERR_FILE_FORMAT "\033[0;31mError. File format should be <name>.cub\033[0;0m"
 # define ERR_FILE_OPEN "\033[0;31mError. Open file error.\033[0;0m"
@@ -15,28 +17,52 @@
 # define ERR_TOO_SMALL_MAP "\033[0;31mError. To small map\033[0;0m"
 # define ERR_OPEN_BORDER "\033[0;31mError. Open border map.\033[0;0m"
 # define ERR_COLOR_FORMAT "\033[0;31mError. No valid color format.\nNeed int (color > 0 and color < 256)\033[0;0m"
+# define ERR_OPEN_IMG "\033[0;31mError. Open img error.\033[0;0m"
+# define ERR_MLX "\033[0;31mError. Mlx error.\033[0;0m"
 
+# define PATH_IMG_M_MAP "sprite/board_mini_map_60.png"
+
+typedef struct s_mlx
+{
+	void	*mlx;
+	void	*mlx_win;
+}			t_mlx;
+
+typedef struct s_img
+{
+	void	*img;
+	int 	x_sz;
+	int 	y_sz;
+}			t_img;
+
+typedef struct s_all_img
+{
+	t_img	sprite_mini;
+}			t_all_img;
 
 typedef struct s_data
 {
-	t_list	*map;
-	char	*path_no;
-	char	*path_so;
-	char	*path_we;
-	char	*path_ea;
-	int		r_f;
-	int 	g_f;
-	int		b_f;
-	int		r_c;
-	int 	g_c;
-	int		b_c;
-	int		flag_malloc_crash;
-	int		flag_count_pers;
-	int		flag_no_valid_char;
-	int 	max_len_map;
-	int 	max_height_map;
-
+	t_list		*map;
+	char		*path_no;
+	char		*path_so;
+	char		*path_we;
+	char		*path_ea;
+	int			r_f;
+	int 		g_f;
+	int			b_f;
+	int			r_c;
+	int 		g_c;
+	int			b_c;
+	int			flag_malloc_crash;
+	int			flag_count_pers;
+	int			flag_no_valid_char;
+	int 		max_len_map;
+	int 		max_height_map;
+	t_mlx		mlx;
+	t_all_img	imgs;
 }			t_data;
+
+
 
 /* ===START_PARSER=== */
 
@@ -77,6 +103,19 @@ int		check_color_is_int(char **for_split);
 int		check_str_is_int(char *for_split);
 
 /* ===END_PARSER=== */
+
+/* ===MLX=== */
+
+void	mlx_initialise(t_data *data);
+
+/* ===END_MLX=== */
+
+/* ===MINIMAP=== */
+
+void	minimap(t_data *data);
+void	img_minimap_init(t_data *data, t_img *img);
+
+/* ===END_MINIMAP=== */
 
 /* ___UTIL___ */
 

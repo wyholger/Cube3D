@@ -30,6 +30,7 @@ void	make_string_is_longer(t_data *data, t_list *list, int len)
 	if (str == NULL)
 		return;
 	tmp = ft_strjoin(list->word, str);
+	free(str);
 	if (tmp == NULL)
 	{
 		data->flag_malloc_crash = 1;

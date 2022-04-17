@@ -18,4 +18,7 @@ void	init_null_data(t_data *data)
 	data->flag_no_valid_char = 0;
 	data->max_len_map = 0;
 	data->max_height_map = 0;
+	data->mlx.mlx = NULL;
+	data->mlx.mlx_win = NULL;
+	data->imgs.sprite_mini.img = NULL;
 }
