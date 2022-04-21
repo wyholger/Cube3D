@@ -140,6 +140,7 @@ int	mipng_fill_img(mlx_img_list_t *img, unsigned char *buf, png_info_t *pi)
       if (ipos % 4 == 3 && pi->color == 2)  // no alpha
 	img->buffer[ipos++] = 0xFF;
     }
+  free(buf);
   if (ipos != ilen || bpos != blen)
     {
       //      printf("fill err ipos %d vs %d, bpos %d vs %d\n", ipos, ilen, bpos, blen);
@@ -204,6 +205,7 @@ int	mipng_data(mlx_img_list_t *img, unsigned char *dat, png_info_t *pi)
 	      inflateEnd(&z_strm);
 	      return (ERR_DATA_MISMATCH);
 	    }
+//		memcpy(buffer+b_pos, z_out, Z_CHUNK - z_strm.avail_out);
 	  bcopy(z_out, buffer+b_pos, Z_CHUNK - z_strm.avail_out);
 	  b_pos += Z_CHUNK - z_strm.avail_out;
 	}

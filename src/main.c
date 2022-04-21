@@ -46,6 +46,5 @@ int main(int argc, char **argv)
 	mlx_initialise(&data);
 	minimap(&data);
 	mlx_loop(data.mlx.mlx);
-	exit_standard(&data);
 	return 0;
 }

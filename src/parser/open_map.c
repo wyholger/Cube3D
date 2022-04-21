@@ -23,6 +23,12 @@ int	open_map(char **argv)
 
 	check_valid_file_format(argv);
 	check_valid_file_not_directory(argv);
+//	ft_putstr_fd( argv[1], 2);
+//	ft_putstr_fd( "\n", 2);
+//	char *str = getcwd(NULL, 0);
+//	ft_putstr_fd( str, 2);
+//	ft_putstr_fd( "\n", 2);
+//	printf("map is %s", argv[1]);
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		error(ERR_FILE_OPEN);

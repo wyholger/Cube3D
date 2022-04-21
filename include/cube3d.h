@@ -1,9 +1,19 @@
 #ifndef CUBE3D_CUBE3D_H
 # define CUBE3D_CUBE3D_H
 # include "../libft/libft.h"
-//# include "cube3d.h"
 # include <stdio.h>
+//# include <mlx.h>
 # include "../minilibx/mlx.h"
+
+# define ESC 53
+# define W 13
+# define A 0
+# define S 1
+# define D 2
+# define UP 126
+# define DOWN 125
+# define LEFT 123
+# define RIGHT 124
 
 # define ERR_NUM_ARG "\033[0;31mError. Number arg error. You need ./cube3D <path_to_map>\033[0;0m"
 # define ERR_FILE_FORMAT "\033[0;31mError. File format should be <name>.cub\033[0;0m"
@@ -20,7 +30,8 @@
 # define ERR_OPEN_IMG "\033[0;31mError. Open img error.\033[0;0m"
 # define ERR_MLX "\033[0;31mError. Mlx error.\033[0;0m"
 
-# define PATH_IMG_M_MAP "sprite/board_mini_map_60.png"
+//# define PATH_IMG_M_MAP "sprite/board_mini_map_60.png"
+# define PATH_IMG_M_MAP "/Users/wyholger/Desktop/projects/Cube3D/sprite/board_mini_map_60.png"
 
 typedef struct s_mlx
 {
