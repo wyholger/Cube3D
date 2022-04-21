@@ -2,6 +2,7 @@
 # define CUBE3D_CUBE3D_H
 # include "../libft/libft.h"
 # include <stdio.h>
+# include <math.h>
 //# include <mlx.h>
 # include "../minilibx/mlx.h"
 
@@ -30,8 +31,8 @@
 # define ERR_OPEN_IMG "\033[0;31mError. Open img error.\033[0;0m"
 # define ERR_MLX "\033[0;31mError. Mlx error.\033[0;0m"
 
-//# define PATH_IMG_M_MAP "sprite/board_mini_map_60.png"
-# define PATH_IMG_M_MAP "/Users/wyholger/Desktop/projects/Cube3D/sprite/board_mini_map_60.png"
+# define PATH_IMG_M_MAP "sprite/board_mini_map_60.png"
+//# define PATH_IMG_M_MAP "/Users/wyholger/Desktop/projects/Cube3D/sprite/board_mini_map_60.png"
 
 typedef struct s_mlx
 {
@@ -50,6 +51,13 @@ typedef struct s_all_img
 {
 	t_img	sprite_mini;
 }			t_all_img;
+
+typedef struct s_player
+{
+	float	x;
+	float 	y;
+	float 	direction;
+}			t_player;
 
 typedef struct s_data
 {
@@ -71,6 +79,7 @@ typedef struct s_data
 	int 		max_height_map;
 	t_mlx		mlx;
 	t_all_img	imgs;
+	t_player	player;
 }			t_data;
 
 
@@ -88,6 +97,7 @@ void	exit_after_validate(t_data *data, int flag_exit);
 void	check_valid_file_format(char **argv);
 int		open_map(char **argv);
 void	read_map(t_data *data, char **argv);
+void 	check_direction(t_data *data, t_list *list, int i);
 void	recording_map(t_data *data, char *line);
 void	color_pars(t_data *data, char *str, int f_c_flag);
 int		check_on_full_properties(t_data *data);
