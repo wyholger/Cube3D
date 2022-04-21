@@ -32,6 +32,7 @@
 # define ERR_MLX "\033[0;31mError. Mlx error.\033[0;0m"
 
 # define PATH_IMG_M_MAP "sprite/board_mini_map_60.png"
+# define PATH_IMG_M_MAP_FLOR "sprite/board_mini_map_20.png"
 //# define PATH_IMG_M_MAP "/Users/wyholger/Desktop/projects/Cube3D/sprite/board_mini_map_60.png"
 
 typedef struct s_ray
@@ -56,6 +57,7 @@ typedef struct s_img
 typedef struct s_all_img
 {
 	t_img	sprite_mini;
+	t_img	sprite_mini_flor;
 }			t_all_img;
 
 typedef struct s_player
@@ -84,6 +86,7 @@ typedef struct s_data
 	int			flag_malloc_crash;
 	int			flag_count_pers;
 	int			flag_no_valid_char;
+	int 		flag_first_draw_minimap;
 	int 		max_len_map;
 	int 		max_height_map;
 	t_mlx		mlx;
@@ -136,6 +139,7 @@ int		check_str_is_int(char *for_split);
 
 /* ===RAY_CASTING=== */
 
+void	draw_player(t_data *data);
 void	draw_ray(t_data *data);
 
 /* ===END_RAY_CASTING=== */
@@ -149,7 +153,7 @@ void	mlx_initialise(t_data *data);
 /* ===MINIMAP=== */
 
 void	minimap(t_data *data);
-void	img_minimap_init(t_data *data, t_img *img);
+void	img_minimap_init(t_data *data, t_img *img, t_img *img_flor);
 
 /* ===END_MINIMAP=== */
 

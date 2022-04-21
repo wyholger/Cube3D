@@ -4,13 +4,13 @@ int	key_hook(int key_hook, t_data *data)
 {
 	mlx_clear_window(data->mlx.mlx, data->mlx.mlx_win);
 	if (key_hook == W)
-		data->player.y -= 0.1;
+		data->player.y -= 1;
 	if (key_hook == S)
-		data->player.y += 0.1;
+		data->player.y += 1;
 	if (key_hook == A)
-		data->player.x -= 0.1;
+		data->player.x -= 1;
 	if (key_hook == D)
-		data->player.x += 0.1;
+		data->player.x += 1;
 	if (key_hook == ESC)
 		exit_standard(data);
 	minimap(data);

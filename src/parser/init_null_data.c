@@ -16,6 +16,7 @@ void	init_null_data(t_data *data)
 	data->flag_malloc_crash = 0;
 	data->flag_count_pers = 0;
 	data->flag_no_valid_char = 0;
+	data->flag_first_draw_minimap = 0;
 	data->max_len_map = 0;
 	data->max_height_map = 0;
 	data->mlx.mlx = NULL;

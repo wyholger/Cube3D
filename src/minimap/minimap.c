@@ -1,15 +1,22 @@
 #include "../../include/cube3d.h"
 
-void	img_minimap_init(t_data *data, t_img *img)
+void	img_minimap_init(t_data *data, t_img *img, t_img *img_flor)
 {
 	img->img = mlx_png_file_to_image(data->mlx.mlx, PATH_IMG_M_MAP, &img->x_sz, &img->y_sz);
 	if (!img->img)
 		exit_after_validate(data, 8);
-	data->player.x *=  (float)img->x_sz;
-	data->player.y *=  (float)img->x_sz;
+	img_flor->img = mlx_png_file_to_image(data->mlx.mlx, PATH_IMG_M_MAP_FLOR, &img->x_sz, &img->y_sz);
+	if (!img_flor->img)
+		exit_after_validate(data, 8);
+	if (data->flag_first_draw_minimap == 0)
+	{
+		data->player.x *= (float)img->x_sz;
+		data->player.y *= (float)img->x_sz;
+		data->flag_first_draw_minimap = 1;
+	}
 }
 
-void	minimap_draw(t_data *data, t_img *img)
+void	minimap_draw(t_data *data, t_img *img, t_img *img_flor)
 {
 	t_list	*tmp;
 	int i;
@@ -24,6 +31,8 @@ void	minimap_draw(t_data *data, t_img *img)
 		{
 			if (tmp->word[j] == '1')
 				mlx_put_image_to_window(data->mlx.mlx, data->mlx.mlx_win, img->img, (j * img->y_sz), (i * img->x_sz));
+			if (tmp->word[j] == '0' || tmp->word[j] == 'S' || tmp->word[j] == 'W' || tmp->word[j] == 'E' || tmp->word[j] == 'N')
+				mlx_put_image_to_window(data->mlx.mlx, data->mlx.mlx_win, img_flor->img, (j * img->y_sz), (i * img->x_sz));
 			j++;
 		}
 		i++;
@@ -31,17 +40,17 @@ void	minimap_draw(t_data *data, t_img *img)
 	}
 }
 
-void	draw_player(t_data *data, t_img *img)
+void	draw_player(t_data *data)
 {
 	t_player tmp;
 
 	tmp = data->player;
-	mlx_pixel_put(data->mlx.mlx, data->mlx.mlx_win,img->x_sz * tmp.x + img->x_sz/2, img->y_sz * tmp.y - img->y_sz/2, 0xfcba03);
+	mlx_pixel_put(data->mlx.mlx, data->mlx.mlx_win,(int)data->player.x, (int)data->player.y, 0xfcba03);
 }
 
 void	minimap(t_data *data)
 {
-	img_minimap_init(data, &data->imgs.sprite_mini);
-	minimap_draw(data, &data->imgs.sprite_mini);
-	draw_player(data, &data->imgs.sprite_mini);
+	img_minimap_init(data, &data->imgs.sprite_mini, &data->imgs.sprite_mini_flor);
+	minimap_draw(data, &data->imgs.sprite_mini, &data->imgs.sprite_mini_flor);
+	draw_player(data);
 }

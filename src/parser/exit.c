@@ -33,7 +33,7 @@ void	exit_standard(t_data *data)
 	ft_lstclear(&data->map);
 	free(data->ch_map);
 	mlx_destroy_image(data->mlx.mlx, data->imgs.sprite_mini.img);
-//	free(data->imgs.sprite_mini.img);
+	mlx_destroy_image(data->mlx.mlx, data->imgs.sprite_mini_flor.img);
 	mlx_destroy_window(data->mlx.mlx, data->mlx.mlx_win);
 	exit(0);
 }
