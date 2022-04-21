@@ -14,7 +14,8 @@ SRCS		=	src/main.c\
 				src/parser/make_map_is_rectangle.c\
 				src/parser/validate_border.c\
 				src/minimap/minimap.c\
-				src/mlx/mlx.c
+				src/mlx/mlx.c\
+				src/minimap/rays.c
 
 HDR			=	include/cube3d.h
 

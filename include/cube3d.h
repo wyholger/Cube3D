@@ -34,6 +34,12 @@
 # define PATH_IMG_M_MAP "sprite/board_mini_map_60.png"
 //# define PATH_IMG_M_MAP "/Users/wyholger/Desktop/projects/Cube3D/sprite/board_mini_map_60.png"
 
+typedef struct s_ray
+{
+	float 	direction;
+
+}			t_ray;
+
 typedef struct s_mlx
 {
 	void	*mlx;
@@ -62,6 +68,7 @@ typedef struct s_player
 typedef struct s_data
 {
 	t_list		*map;
+	char		**ch_map;
 	char		*path_no;
 	char		*path_so;
 	char		*path_we;
@@ -124,6 +131,12 @@ int		check_color_is_int(char **for_split);
 int		check_str_is_int(char *for_split);
 
 /* ===END_PARSER=== */
+
+/* ===RAY_CASTING=== */
+
+void	draw_ray(t_data *data);
+
+/* ===END_RAY_CASTING=== */
 
 /* ===MLX=== */
 

@@ -17,6 +17,7 @@ void check_direction(t_data *data, t_list *list, int i)
 			data->player.direction = 3 * M_PI / 2;
 		if (list->word[j] == 'S' || list->word[j] == 'E' || list->word[j] == 'W' || list->word[j] == 'N')
 		{
+			data->player.direction = data->player.direction + 0.000000000001f;
 			data->player.x = (float)j;
 			data->player.y = (float)i;
 			printf("%f %f\n",data->player.x,data->player.y);

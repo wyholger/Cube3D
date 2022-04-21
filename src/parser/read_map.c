@@ -40,6 +40,25 @@ void recording_data_from_map(t_data *data, char *line)
 		recording_map(data, line);
 }
 
+void	make_char_map(t_data *data)
+{
+	int		i;
+	t_list	*tmp;
+
+	i = 0;
+	tmp = data->map;
+	data->ch_map = malloc(ft_lstsize(data->map));
+	if (data->ch_map == NULL)
+	{
+		data->flag_malloc_crash = 1;
+		return;
+	}
+	while (tmp)
+	{
+		data->ch_map[i] = tmp->word;
+		tmp = tmp->next;
+	}
+}
 //void print_len(t_data *data)
 //{
 //	t_list *tmp;
@@ -74,5 +93,6 @@ void read_map(t_data *data, char **argv)
 	make_map_is_rectangle(data);
 //	print_len(data);
 	validate_map(data);
+	make_char_map(data);
 	malloc_crash_after_init_data(data);
 }

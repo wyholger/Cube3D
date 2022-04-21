@@ -45,6 +45,7 @@ int main(int argc, char **argv)
 //	malx_test(&data);
 	mlx_initialise(&data);
 	minimap(&data);
+//	draw_ray(&data);
 	mlx_loop(data.mlx.mlx);
 	return 0;
 }

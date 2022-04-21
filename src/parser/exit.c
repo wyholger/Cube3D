@@ -31,6 +31,7 @@ void	exit_standard(t_data *data)
 //	printf("BLAHHH\n");
 	free_data_path(data);
 	ft_lstclear(&data->map);
+	free(data->ch_map);
 	mlx_destroy_image(data->mlx.mlx, data->imgs.sprite_mini.img);
 //	free(data->imgs.sprite_mini.img);
 	mlx_destroy_window(data->mlx.mlx, data->mlx.mlx_win);
