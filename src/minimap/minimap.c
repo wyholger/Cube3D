@@ -31,8 +31,17 @@ void	minimap_draw(t_data *data, t_img *img)
 	}
 }
 
+void	draw_player(t_data *data, t_img *img)
+{
+	t_player tmp;
+
+	tmp = data->player;
+	mlx_pixel_put(data->mlx.mlx, data->mlx.mlx_win,img->x_sz * tmp.x + img->x_sz/2, img->y_sz * tmp.y - img->y_sz/2, 0xfcba03);
+}
+
 void	minimap(t_data *data)
 {
 	img_minimap_init(data, &data->imgs.sprite_mini);
 	minimap_draw(data, &data->imgs.sprite_mini);
+	draw_player(data, &data->imgs.sprite_mini);
 }
