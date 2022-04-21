@@ -23,9 +23,16 @@ void	draw_ray(t_data *data)
 //	int side_dist_X;
 //	int side_dist_Y;
 
+	float	delta_x;
+	float 	delta_y;
+//	float	c_x;
+//	float 	c_y;
+
 	data->player.direction = M_PI / 3;
+	delta_x = (float)data->imgs.sprite_mini.x_sz / tanf(data->player.direction);
+	delta_y = data->player.y + (float)data->imgs.sprite_mini.x_sz;
 	stepX = step_init_x(data);
 	stepY = step_init_y(data);
-	printf("step x = %d; y = %d\n dir = %f\n", stepX, stepY, data->player.direction);
+	printf("step x = %d; y = %d\ndir = %f\npos x = %f; y = %f\npos delta_x = %f; y = %f\n", stepX, stepY, data->player.direction, data->player.x, data->player.y, delta_x, delta_y);
 
 }

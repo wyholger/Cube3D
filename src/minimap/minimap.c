@@ -5,6 +5,8 @@ void	img_minimap_init(t_data *data, t_img *img)
 	img->img = mlx_png_file_to_image(data->mlx.mlx, PATH_IMG_M_MAP, &img->x_sz, &img->y_sz);
 	if (!img->img)
 		exit_after_validate(data, 8);
+	data->player.x *=  (float)img->x_sz;
+	data->player.y *=  (float)img->x_sz;
 }
 
 void	minimap_draw(t_data *data, t_img *img)
