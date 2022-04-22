@@ -53,4 +53,5 @@ void	minimap(t_data *data)
 	img_minimap_init(data, &data->imgs.sprite_mini, &data->imgs.sprite_mini_flor);
 	minimap_draw(data, &data->imgs.sprite_mini, &data->imgs.sprite_mini_flor);
 	draw_player(data);
+	draw_ray(data);
 }

@@ -34,11 +34,19 @@
 # define PATH_IMG_M_MAP "sprite/board_mini_map_60.png"
 # define PATH_IMG_M_MAP_FLOR "sprite/board_mini_map_20.png"
 //# define PATH_IMG_M_MAP "/Users/wyholger/Desktop/projects/Cube3D/sprite/board_mini_map_60.png"
+//# define PATH_IMG_M_MAP_FLOR "/Users/wyholger/Desktop/projects/Cube3D/sprite/board_mini_map_20.png"
 
 typedef struct s_ray
 {
 	float 	direction;
-
+	int 	stepX;
+	int 	stepY;
+	int 	x_now;
+	int 	y_now;
+	float	sin_dir;
+	float	cos_dir;
+	float 	offset_x;
+	float	offset_y;
 }			t_ray;
 
 typedef struct s_mlx
@@ -64,6 +72,8 @@ typedef struct s_player
 {
 	float	x;
 	float 	y;
+	float 	offset_x;
+	float 	offset_y;
 	int 	x_i;
 	int 	y_i;
 	float 	direction;
@@ -92,6 +102,7 @@ typedef struct s_data
 	t_mlx		mlx;
 	t_all_img	imgs;
 	t_player	player;
+	t_ray		ray;
 }			t_data;
 
 

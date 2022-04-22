@@ -11,8 +11,29 @@ int	key_hook(int key_hook, t_data *data)
 		data->player.x -= 1;
 	if (key_hook == D)
 		data->player.x += 1;
+	if (key_hook == D || key_hook == A || key_hook == S || key_hook == W)
+	{
+		data->player.y_i = (int)(data->player.y / (float)data->imgs.sprite_mini.x_sz);
+		data->player.x_i = (int)(data->player.x / (float)data->imgs.sprite_mini.x_sz);
+	}
 	if (key_hook == ESC)
 		exit_standard(data);
+	if (key_hook == LEFT)
+	{
+		data->player.direction += 0.15f;
+		if (data->player.direction > M_PI * 2)
+		{
+			data->player.direction = 0.01;
+		}
+	}
+	if (key_hook == RIGHT)
+	{
+		data->player.direction -= 0.15f;
+		if (data->player.direction < 0)
+		{
+			data->player.direction = (M_PI * 2) - 0.01;
+		}
+	}
 	minimap(data);
 	return (0);
 }

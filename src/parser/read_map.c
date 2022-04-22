@@ -47,7 +47,7 @@ void	make_char_map(t_data *data)
 
 	i = 0;
 	tmp = data->map;
-	data->ch_map = malloc(ft_lstsize(data->map));
+	data->ch_map = malloc((ft_lstsize(data->map) + 1) * sizeof (char *));
 	if (data->ch_map == NULL)
 	{
 		data->flag_malloc_crash = 1;
@@ -55,9 +55,24 @@ void	make_char_map(t_data *data)
 	}
 	while (tmp)
 	{
+//		data->ch_map[i] = ft_strdup(tmp->word);
 		data->ch_map[i] = tmp->word;
+//		if (data->ch_map[i] == NULL)
+//		{
+//			data->flag_malloc_crash = 1;
+//			return;
+//		}
 		tmp = tmp->next;
+		i++;
 	}
+	data->ch_map[i] = NULL;
+//	printf("BLAHHHHHH\n");
+//	i = 0;
+//	while (data->ch_map[i])
+//	{
+//		printf("%s\n", data->ch_map[i]);
+//		i++;
+//	}
 }
 //void print_len(t_data *data)
 //{
