@@ -15,7 +15,9 @@ SRCS		=	src/main.c\
 				src/parser/validate_border.c\
 				src/minimap/minimap.c\
 				src/mlx/mlx.c\
-				src/minimap/rays.c
+				src/minimap/ray.c\
+				src/minimap/ray_util.c\
+				src/minimap/draw_line.c
 
 HDR			=	include/cube3d.h
 

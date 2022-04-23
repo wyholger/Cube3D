@@ -18,11 +18,11 @@ void check_direction(t_data *data, t_list *list, int i)
 		if (list->word[j] == 'S' || list->word[j] == 'E' || list->word[j] == 'W' || list->word[j] == 'N')
 		{
 			data->player.direction = data->player.direction + 0.000000000001f;
-			data->player.x = (float)j + 0.2;
-			data->player.y = (float)i + 0.2;
+			data->player.x = (float)j + 0.5;
+			data->player.y = (float)i - 0.5;
 			data->player.x_i = j;
 			data->player.y_i = i;
-			printf("%f %f\n",data->player.x,data->player.y);
+			printf("___coordinate %f %f; x= %d y= %d\n",data->player.x,data->player.y, data->player.x_i, data->player.y_i);
 		}
 		j++;
 	}

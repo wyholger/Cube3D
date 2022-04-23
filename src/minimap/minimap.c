@@ -11,7 +11,7 @@ void	img_minimap_init(t_data *data, t_img *img, t_img *img_flor)
 	if (data->flag_first_draw_minimap == 0)
 	{
 		data->player.x *= (float)img->x_sz;
-		data->player.y *= (float)img->x_sz;
+		data->player.y *= (float)img->x_sz - 1;
 		data->flag_first_draw_minimap = 1;
 	}
 }
@@ -53,5 +53,5 @@ void	minimap(t_data *data)
 	img_minimap_init(data, &data->imgs.sprite_mini, &data->imgs.sprite_mini_flor);
 	minimap_draw(data, &data->imgs.sprite_mini, &data->imgs.sprite_mini_flor);
 	draw_player(data);
-	draw_ray(data);
+	ray_computing_cycle(data);
 }
