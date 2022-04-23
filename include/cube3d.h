@@ -59,12 +59,11 @@ typedef struct s_ray
 	float	cos_dir;
 	float	delta_x;
 	float 	delta_y;
+	float 	len;
 	float	hypotenuse_vertical;
 	float	hypotenuse_horizontal;
 	int		x_y_x1_y1[4];
 	t_var_draw_line	vars;
-	float 	offset_x;//удалить
-	float	offset_y;
 }			t_ray;
 
 typedef struct s_mlx
@@ -166,7 +165,7 @@ int		check_str_is_int(char *for_split);
 
 /* ===END_PARSER=== */
 
-/* ===RAY_CASTING=== */
+/* ===MINIMAP=== */
 
 void	draw_player(t_data *data);
 int		step_init_x(t_ray *ray);
@@ -181,6 +180,12 @@ void	ray_computing_cycle(t_data *data, t_ray *ray);
 void	draw_line(t_data *data, t_ray *ray);
 void	init_vars_for_draw_line(t_data *data, t_ray *ray);
 void	init_rays(t_data *data);
+
+/* ===END_MINIMAP=== */
+
+/* ===RAY_CASTING=== */
+
+void	ray_casting(t_data *data);
 
 /* ===END_RAY_CASTING=== */
 

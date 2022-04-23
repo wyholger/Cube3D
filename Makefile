@@ -18,7 +18,8 @@ SRCS		=	src/main.c\
 				src/minimap/ray.c\
 				src/minimap/rays.c\
 				src/minimap/ray_util.c\
-				src/minimap/draw_line.c
+				src/minimap/draw_line.c\
+				src/raycasting/raycasting.c
 
 HDR			=	include/cube3d.h
 

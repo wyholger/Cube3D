@@ -60,9 +60,17 @@ void	ray_computing_cycle(t_data *data, t_ray *ray)
 		ray->hypotenuse_vertical = get_hypotenuse_to_vertical(data, ray->cos_dir, ray);
 		ray->hypotenuse_horizontal = get_hypotenuse_to_horizontal(data, ray->sin_dir, ray);
 		if (fabsf(ray->hypotenuse_vertical) < fabsf(ray->hypotenuse_horizontal))
+		{
 			flag_wall = get_flag_wall_to_horizontal(data, ray);
+			if (flag_wall == 0)
+				ray->len = ray->hypotenuse_vertical;
+		}
 		else
+		{
 			flag_wall = get_flag_wall_to_vertical(data, ray);
+			if (flag_wall == 0)
+				ray->len = ray->hypotenuse_horizontal;
+		}
 //		mlx_pixel_put(data->mlx.mlx, data->mlx.mlx_win, (int) data->ray.delta_x, (int) data->ray.delta_y, 0x11cc03);
 	}
 	draw_line(data, ray);
