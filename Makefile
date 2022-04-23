@@ -16,6 +16,7 @@ SRCS		=	src/main.c\
 				src/minimap/minimap.c\
 				src/mlx/mlx.c\
 				src/minimap/ray.c\
+				src/minimap/rays.c\
 				src/minimap/ray_util.c\
 				src/minimap/draw_line.c
 

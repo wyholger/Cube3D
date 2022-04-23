@@ -50,8 +50,16 @@ void	draw_player(t_data *data)
 
 void	minimap(t_data *data)
 {
+	int i;
+
+	i = 0;
 	img_minimap_init(data, &data->imgs.sprite_mini, &data->imgs.sprite_mini_flor);
 	minimap_draw(data, &data->imgs.sprite_mini, &data->imgs.sprite_mini_flor);
 	draw_player(data);
-	ray_computing_cycle(data);
+	init_rays(data);
+	while (i < WITH)
+	{
+		ray_computing_cycle(data, &data->ray[i]);
+		i++;
+	}
 }

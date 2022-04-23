@@ -43,7 +43,7 @@ void	mlx_initialise(t_data *data)
 	data->mlx.mlx = mlx_init();
 	if (data->mlx.mlx == NULL)
 		exit_after_validate(data, 9);
-	data->mlx.mlx_win = mlx_new_window(data->mlx.mlx, 1000, 600, "Coub3d");
+	data->mlx.mlx_win = mlx_new_window(data->mlx.mlx, WITH, HEIGHT, "Coub3d");
 	if (data->mlx.mlx_win == NULL)
 		exit_after_validate(data, 9);
 	mlx_hook(data->mlx.mlx_win, 2, 1<<3, key_hook, data);

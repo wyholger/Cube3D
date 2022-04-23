@@ -36,6 +36,10 @@
 //# define PATH_IMG_M_MAP "/Users/wyholger/Desktop/projects/Cube3D/sprite/board_mini_map_60.png"
 //# define PATH_IMG_M_MAP_FLOR "/Users/wyholger/Desktop/projects/Cube3D/sprite/board_mini_map_20.png"
 
+# define WITH 1000
+# define HEIGHT 600
+# define RAD_FOR_66_ANGLE 1.15192
+
 typedef struct s_var_draw_line
 {
 	int 	deltax;
@@ -116,7 +120,7 @@ typedef struct s_data
 	t_mlx		mlx;
 	t_all_img	imgs;
 	t_player	player;
-	t_ray		ray;
+	t_ray		ray[WITH];
 }			t_data;
 
 
@@ -165,17 +169,18 @@ int		check_str_is_int(char *for_split);
 /* ===RAY_CASTING=== */
 
 void	draw_player(t_data *data);
-int		step_init_x(t_data *data);
-int		step_init_y(t_data *data);
-float	get_hypotenuse_to_vertical(t_data *data, float cos_dir);
-float	get_hypotenuse_to_horizontal(t_data *data, float sin_dir);
-void	init_offset(t_data *data);
-int		init_ray_vars(t_data *data);
-int		get_flag_wall_to_vertical(t_data *data);
-int		get_flag_wall_to_horizontal(t_data *data);
-void	ray_computing_cycle(t_data *data);
+int		step_init_x(t_ray *ray);
+int		step_init_y(t_ray *ray);
+float	get_hypotenuse_to_vertical(t_data *data, float cos_dir, t_ray *ray);
+float	get_hypotenuse_to_horizontal(t_data *data, float sin_dir, t_ray *ray);
+void	init_offset(t_data *data, t_ray *ray);
+int		init_ray_vars(t_data *data, t_ray *ray);
+int		get_flag_wall_to_vertical(t_data *data, t_ray *ray);
+int		get_flag_wall_to_horizontal(t_data *data, t_ray *ray);
+void	ray_computing_cycle(t_data *data, t_ray *ray);
 void	draw_line(t_data *data, t_ray *ray);
 void	init_vars_for_draw_line(t_data *data, t_ray *ray);
+void	init_rays(t_data *data);
 
 /* ===END_RAY_CASTING=== */
 

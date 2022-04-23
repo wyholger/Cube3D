@@ -44,7 +44,6 @@ int main(int argc, char **argv)
 	read_map(&data, argv);
 //	malx_test(&data);
 	mlx_initialise(&data);
-	printf("BLAHHHHHH\n");
 	minimap(&data);
 //	draw_ray(&data);
 	mlx_loop(data.mlx.mlx);

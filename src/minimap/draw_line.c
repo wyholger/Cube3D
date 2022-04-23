@@ -4,8 +4,8 @@ void	init_vars_for_draw_line(t_data *data, t_ray *ray)
 {
 	ray->x_y_x1_y1[0] = (int)data->player.x;
 	ray->x_y_x1_y1[1] = (int)data->player.y;
-	ray->x_y_x1_y1[2] = (int)data->ray.delta_x;
-	ray->x_y_x1_y1[3] = (int)data->ray.delta_y;
+	ray->x_y_x1_y1[2] = (int)ray->delta_x;
+	ray->x_y_x1_y1[3] = (int)ray->delta_y;
 	if (ray->x_y_x1_y1[0] < ray->x_y_x1_y1[2])
 		ray->vars.signX = 1;
 	else
