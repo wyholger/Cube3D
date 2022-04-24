@@ -38,6 +38,8 @@
 
 # define WITH 1000
 # define HEIGHT 600
+# define HEIGHT_2 300
+# define DISTANSE_OF 0.54117299432
 # define RAD_FOR_66_ANGLE 1.15192
 
 typedef struct s_var_draw_line
