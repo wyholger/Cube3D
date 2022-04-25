@@ -54,13 +54,15 @@ void	minimap(t_data *data)
 
 	i = 0;
 	img_minimap_init(data, &data->imgs.sprite_mini, &data->imgs.sprite_mini_flor);
-	minimap_draw(data, &data->imgs.sprite_mini, &data->imgs.sprite_mini_flor);
-	draw_player(data);
+	printf("dir = %f\n", data->player.direction);
 	init_rays(data);
 	while (i < WITH)
 	{
 		ray_computing_cycle_2(data, &data->ray[i]);
 		i++;
 	}
+	printf("stepX = %d; stepY = %d\n", data->ray[499].stepX, data->ray[499].stepY);
 	ray_casting(data);
+	minimap_draw(data, &data->imgs.sprite_mini, &data->imgs.sprite_mini_flor);
+	draw_player(data);
 }

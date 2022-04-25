@@ -16,16 +16,16 @@ void	init_vars_for_draw_line(t_data *data, t_ray *ray)
 		ray->vars.signY = -1;
 }
 
-void	draw_line(t_data *data, t_ray *ray)
+void	draw_line(t_data *data, t_ray *ray, int color)
 {
 	init_vars_for_draw_line(data, ray);
 	ray->vars.deltax = abs(ray->x_y_x1_y1[2] - ray->x_y_x1_y1[0]);
 	ray->vars.deltay = abs(ray->x_y_x1_y1[3] - ray->x_y_x1_y1[1]);
 	ray->vars.error = ray->vars.deltax - ray->vars.deltay;
-	mlx_pixel_put(data->mlx.mlx, data->mlx.mlx_win, ray->x_y_x1_y1[2], ray->x_y_x1_y1[3], 0x9932cc);
+	mlx_pixel_put(data->mlx.mlx, data->mlx.mlx_win, ray->x_y_x1_y1[2], ray->x_y_x1_y1[3], color);
 	while(ray->x_y_x1_y1[0] != ray->x_y_x1_y1[2] || ray->x_y_x1_y1[1] != ray->x_y_x1_y1[3])
 	{
-		mlx_pixel_put(data->mlx.mlx, data->mlx.mlx_win, ray->x_y_x1_y1[0], ray->x_y_x1_y1[1], 0x11cc03);
+		mlx_pixel_put(data->mlx.mlx, data->mlx.mlx_win, ray->x_y_x1_y1[0], ray->x_y_x1_y1[1], color);
 		ray->vars.error_2 = ray->vars.error * 2;
 		if(ray->vars.error_2 > -ray->vars.deltay)
 		{

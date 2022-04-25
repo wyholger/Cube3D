@@ -80,7 +80,7 @@ void	ray_computing_cycle(t_data *data, t_ray *ray)
 		}
 //		mlx_pixel_put(data->mlx.mlx, data->mlx.mlx_win, (int) data->ray.delta_x, (int) data->ray.delta_y, 0x11cc03);
 	}
-	draw_line(data, ray);
+//	draw_line(data, ray);
 }
 
 
@@ -233,7 +233,10 @@ void	ray_computing_cycle_2(t_data *data, t_ray *ray)
 		}
 	}
 	init_final_hypotenuse(data, ray);
-//	if (ray->flag_first == 1)
-	draw_line(data, ray);
+	if (ray->flag_first == 0)
+		draw_line(data, ray, 0xF9FE72);
+	else
+		draw_line(data, ray, 0xFF0000);
+
 //	pause();
 }

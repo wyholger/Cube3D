@@ -181,7 +181,7 @@ int		init_ray_vars(t_data *data, t_ray *ray);
 int		get_flag_wall_to_vertical(t_data *data, t_ray *ray);
 int		get_flag_wall_to_horizontal(t_data *data, t_ray *ray);
 void	ray_computing_cycle(t_data *data, t_ray *ray);
-void	draw_line(t_data *data, t_ray *ray);
+void	draw_line(t_data *data, t_ray *ray, int color);
 void	init_vars_for_draw_line(t_data *data, t_ray *ray);
 void	init_rays(t_data *data);
 

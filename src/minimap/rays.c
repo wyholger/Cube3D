@@ -14,7 +14,7 @@ void	init_rays(t_data *data)
 		angle = (2 * M_PI) + angle;
 	while (i < WITH)
 	{
-		if (i == WITH - 1)
+		if (i == 499)
 			data->ray[i].flag_first = 1;
 		else
 			data->ray[i].flag_first = 0;
