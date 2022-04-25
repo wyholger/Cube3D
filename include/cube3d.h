@@ -65,6 +65,8 @@ typedef struct s_ray
 	float	hypotenuse_vertical;
 	float	hypotenuse_horizontal;
 	int		x_y_x1_y1[4];
+	char 	wall_direction;
+	int 	flag_first;//for debug
 	t_var_draw_line	vars;
 }			t_ray;
 
@@ -188,6 +190,7 @@ void	init_rays(t_data *data);
 /* ===RAY_CASTING=== */
 
 void	ray_casting(t_data *data);
+void	ray_computing_cycle_2(t_data *data, t_ray *ray);
 
 /* ===END_RAY_CASTING=== */
 

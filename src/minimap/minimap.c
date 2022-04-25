@@ -59,7 +59,7 @@ void	minimap(t_data *data)
 	init_rays(data);
 	while (i < WITH)
 	{
-		ray_computing_cycle(data, &data->ray[i]);
+		ray_computing_cycle_2(data, &data->ray[i]);
 		i++;
 	}
 	ray_casting(data);
