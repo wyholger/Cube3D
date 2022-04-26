@@ -4,13 +4,25 @@ int	key_hook(int key_hook, t_data *data)
 {
 	mlx_clear_window(data->mlx.mlx, data->mlx.mlx_win);
 	if (key_hook == W)
-		data->player.y -= 1;
+	{
+		data->player.y -= 1 * sinf(data->player.direction);
+		data->player.x += 1 * cosf(data->player.direction);
+	}
 	if (key_hook == S)
-		data->player.y += 1;
+	{
+		data->player.y += 1 * sinf(data->player.direction);
+		data->player.x -= 1 * cosf(data->player.direction);
+	}
 	if (key_hook == A)
-		data->player.x -= 1;
+	{
+		data->player.x -= 1 * sinf(data->player.direction);
+		data->player.y -= 1 * cosf(data->player.direction);
+	}
 	if (key_hook == D)
-		data->player.x += 1;
+	{
+		data->player.x += 1 * sinf(data->player.direction);
+		data->player.y += 1 * cosf(data->player.direction);
+	}
 	if (key_hook == D || key_hook == A || key_hook == S || key_hook == W)
 	{
 		data->player.y_i = (int)(data->player.y / (float)data->imgs.sprite_mini.x_sz);
