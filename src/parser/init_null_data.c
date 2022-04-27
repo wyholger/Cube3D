@@ -13,6 +13,7 @@ void	init_null_data(t_data *data)
 	data->r_f = -1;
 	data->g_f = -1;
 	data->b_f = -1;
+	data->bits_per_pixel = 32;
 	data->flag_malloc_crash = 0;
 	data->flag_count_pers = 0;
 	data->flag_no_valid_char = 0;

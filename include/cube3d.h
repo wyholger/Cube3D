@@ -35,6 +35,7 @@
 # define PATH_IMG_M_MAP_FLOR "sprite/board_mini_map_20.png"
 # define PATH_IMG_FLOR "sprite/mnblack.xpm"
 # define PATH_IMG_SKY "sprite/mnblack.xpm"
+# define PATH_IMG_WALL "sprite/wall.xpm"
 //# define PATH_IMG_M_MAP "/Users/wyholger/Desktop/projects/Cube3D/sprite/board_mini_map_60.png"
 //# define PATH_IMG_M_MAP_FLOR "/Users/wyholger/Desktop/projects/Cube3D/sprite/board_mini_map_20.png"
 
@@ -59,6 +60,9 @@ typedef struct s_ray
 	float 	direction;
 	int 	stepX;
 	int 	stepY;
+	int 	x;
+	int 	y;
+	float 	left_sprite_dist;
 	float	sin_dir;
 	float	cos_dir;
 	float	delta_x;
@@ -81,6 +85,8 @@ typedef struct s_mlx
 typedef struct s_img
 {
 	void	*img;
+	char	*adr;
+	int 	size_line;
 	int 	x_sz;
 	int 	y_sz;
 }			t_img;
@@ -91,6 +97,11 @@ typedef struct s_all_img
 	t_img	sprite_mini_flor;
 	t_img	flor;
 	t_img	sky;
+	t_img	wall;
+	t_img	no;
+	t_img	so;
+	t_img	we;
+	t_img	ea;
 }			t_all_img;
 
 typedef struct s_player
@@ -118,8 +129,9 @@ typedef struct s_data
 	int			r_c;
 	int 		g_c;
 	int			b_c;
-	int 		color_flor;
+	unsigned int 		color_flor;
 	int 		color_sky;
+	int 		bits_per_pixel;
 	int			flag_malloc_crash;
 	int			flag_count_pers;
 	int			flag_no_valid_char;
@@ -141,6 +153,7 @@ typedef struct s_data
 void	error_num_arg(int argc);
 void	error(char *err);
 void	exit_after_validate(t_data *data, int flag_exit);
+void	check_to_open_img(t_data *data, void *img);
 
 /* _FILE_READ_WORK_ */
 
@@ -175,7 +188,7 @@ int		check_str_is_int(char *for_split);
 
 /* ===END_PARSER=== */
 
-void	img_flor_sky_init(t_data *data, t_img *flor, t_img *sky);
+void	imgs_texture_and_sky_flor_init(t_data *data, t_img *flor, t_img *sky);
 void	init_color(t_data *data);
 void	init_color_sky(t_data *data);
 void	init_color_flor(t_data *data);
@@ -195,6 +208,7 @@ void	ray_computing_cycle(t_data *data, t_ray *ray);
 void	draw_line(t_data *data, t_ray *ray, int color);
 void	init_vars_for_draw_line(t_data *data, t_ray *ray);
 void	init_rays(t_data *data);
+void	init_left_sprite_dist(t_data *data, t_ray *ray);
 
 /* ===END_MINIMAP=== */
 
@@ -202,6 +216,7 @@ void	init_rays(t_data *data);
 
 void	ray_casting(t_data *data);
 void	ray_computing_cycle_2(t_data *data, t_ray *ray);
+void	clean_wall(t_img *wall);
 
 /* ===END_RAY_CASTING=== */
 

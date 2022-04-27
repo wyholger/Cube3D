@@ -20,7 +20,10 @@ SRCS		=	src/main.c\
 				src/minimap/ray_util.c\
 				src/minimap/draw_line.c\
 				src/raycasting/raycasting.c\
-				src/color_operation/color_operation.c
+				src/color_operation/color_operation.c\
+				src/minimap/util.c\
+				src/minimap/ray_2.c
+
 
 HDR			=	include/cube3d.h
 

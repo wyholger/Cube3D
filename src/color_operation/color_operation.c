@@ -3,7 +3,7 @@
 void	init_color(t_data *data)
 {
 	data->color_flor = ((data->r_f * 256 * 256) + (data->g_f * 256) + data->b_f);
-//	data->color_flor = data->color_flor + 0xFF;
+//	data->color_flor = data->color_flor + 0xFF000000;
 	data->color_sky = ((data->r_c * 256 * 256) + (data->g_c * 256) + data->b_c);
 }
 
