@@ -58,6 +58,7 @@ void	mlx_initialise(t_data *data)
 	data->mlx.mlx_win = mlx_new_window(data->mlx.mlx, WITH, HEIGHT, "Coub3d");
 	if (data->mlx.mlx_win == NULL)
 		exit_after_validate(data, 9);
+	img_flor_sky_init(data, &data->imgs.flor, &data->imgs.sky);
 	mlx_hook(data->mlx.mlx_win, 2, 1<<3, key_hook, data);
 	//mlx_loop_hook(data->mlx.mlx, minimap, data); 
 	//mlx_key_hook(data->mlx.mlx_win, key_hook, data);

@@ -33,6 +33,8 @@
 
 # define PATH_IMG_M_MAP "sprite/board_mini_map_60.png"
 # define PATH_IMG_M_MAP_FLOR "sprite/board_mini_map_20.png"
+# define PATH_IMG_FLOR "sprite/mnblack.xpm"
+# define PATH_IMG_SKY "sprite/mnblack.xpm"
 //# define PATH_IMG_M_MAP "/Users/wyholger/Desktop/projects/Cube3D/sprite/board_mini_map_60.png"
 //# define PATH_IMG_M_MAP_FLOR "/Users/wyholger/Desktop/projects/Cube3D/sprite/board_mini_map_20.png"
 
@@ -87,6 +89,8 @@ typedef struct s_all_img
 {
 	t_img	sprite_mini;
 	t_img	sprite_mini_flor;
+	t_img	flor;
+	t_img	sky;
 }			t_all_img;
 
 typedef struct s_player
@@ -114,6 +118,8 @@ typedef struct s_data
 	int			r_c;
 	int 		g_c;
 	int			b_c;
+	int 		color_flor;
+	int 		color_sky;
 	int			flag_malloc_crash;
 	int			flag_count_pers;
 	int			flag_no_valid_char;
@@ -168,6 +174,11 @@ int		check_color_is_int(char **for_split);
 int		check_str_is_int(char *for_split);
 
 /* ===END_PARSER=== */
+
+void	img_flor_sky_init(t_data *data, t_img *flor, t_img *sky);
+void	init_color(t_data *data);
+void	init_color_sky(t_data *data);
+void	init_color_flor(t_data *data);
 
 /* ===MINIMAP=== */
 

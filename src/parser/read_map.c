@@ -109,5 +109,6 @@ void read_map(t_data *data, char **argv)
 //	print_len(data);
 	validate_map(data);
 	make_char_map(data);
+	init_color(data);
 	malloc_crash_after_init_data(data);
 }
