@@ -13,9 +13,9 @@ int	init_ray_vars(t_data *data, t_ray *ray)
 void	init_wall_direction_for_vertical(t_ray *ray)
 {
 	if (ray->stepX == -1)
-		ray->wall_direction = 'E';
-	else
 		ray->wall_direction = 'W';
+	else
+		ray->wall_direction = 'E';
 }
 
 void	init_wall_direction_for_horizontal(t_ray *ray)
@@ -29,8 +29,6 @@ void	init_wall_direction_for_horizontal(t_ray *ray)
 int check_wall_horizontal(t_data *data, t_ray *ray, int dep)
 {
 	int 	flag_wall;
-	int 	x;
-	int 	y;
 
 	flag_wall = 0;
 	ray->delta_y = data->player.y + ((data->player.offset_y + (data->imgs.sprite_mini.x_sz * dep)) * (float)ray->stepY);
@@ -38,22 +36,22 @@ int check_wall_horizontal(t_data *data, t_ray *ray, int dep)
 	ray->delta_x = data->player.x + (ray->delta_x * ray->stepX);
 //	if (ray->flag_first == 1)
 //		printf("x = %f; y = %f; d_x = %f; d_y = %f; horis\n", data->player.x, data->player.y, ray->delta_x, ray->delta_y);
-	x = (int)(ray->delta_x / data->imgs.sprite_mini.x_sz);
+	ray->x = (int)(ray->delta_x / data->imgs.sprite_mini.x_sz);
 	if (ray->stepY == -1)
-		y = ((int)((ray->delta_y / data->imgs.sprite_mini.x_sz))) + ray->stepY;
+		ray->y = ((int)((ray->delta_y / data->imgs.sprite_mini.x_sz))) + ray->stepY;
 	else
-		y = ((int)((ray->delta_y / data->imgs.sprite_mini.x_sz)));
+		ray->y = ((int)((ray->delta_y / data->imgs.sprite_mini.x_sz)));
 
 //	y = ((int)(ceilf(ray->delta_y / data->imgs.sprite_mini.x_sz))) + ray->stepY;
 
 //	y = ((int)(ceilf(ray->delta_y / data->imgs.sprite_mini.x_sz))) + (ray->stepY * -1);
 //	if (ray->flag_first == 1)
 //		printf("X = %d, Y = %d\n", x, y);
-	if (data->ch_map[y][x] == '1')
+	if (data->ch_map[ray->y][ray->x] == '1')
 	{
 		init_wall_direction_for_horizontal(ray);
 		if (ray->flag_first == 1)
-			printf("X = %d, Y = %d;\n", x, y);
+			printf("X = %d, Y = %d;\n", ray->x, ray->y);
 		init_left_sprite_dist(data, ray);
 		flag_wall = 1;
 	}

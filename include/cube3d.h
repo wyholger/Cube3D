@@ -44,6 +44,8 @@
 # define HEIGHT_2 300
 # define DISTANSE_OF 0.54117299432
 # define RAD_FOR_66_ANGLE 1.15192
+# define ONE_STEP_TEXTURE_Y 9.375
+# define ONE_STEP_TEXTURE_X 15.625
 
 typedef struct s_var_draw_line
 {

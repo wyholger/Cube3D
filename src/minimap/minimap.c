@@ -100,6 +100,7 @@ void	minimap(t_data *data)
 		i++;
 	}
 	printf("stepX = %d; stepY = %d\n", data->ray[499].stepX, data->ray[499].stepY);
+	clean_wall(&data->imgs.wall);
 	ray_casting(data);
 	mlx_put_image_to_window(data->mlx.mlx, data->mlx.mlx_win, data->imgs.wall.img, 0, 0);
 	minimap_draw(data, &data->imgs.sprite_mini, &data->imgs.sprite_mini_flor);
