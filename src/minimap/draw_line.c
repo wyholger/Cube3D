@@ -1,4 +1,4 @@
-#include "../../include/cube3d.h"
+#include "../../include/cub3d.h"
 
 void	init_vars_for_draw_line(t_data *data, t_ray *ray)
 {
@@ -7,13 +7,13 @@ void	init_vars_for_draw_line(t_data *data, t_ray *ray)
 	ray->x_y_x1_y1[2] = (int)ray->delta_x;
 	ray->x_y_x1_y1[3] = (int)ray->delta_y;
 	if (ray->x_y_x1_y1[0] < ray->x_y_x1_y1[2])
-		ray->vars.signX = 1;
+		ray->vars.sign_x = 1;
 	else
-		ray->vars.signX = -1;
+		ray->vars.sign_x = -1;
 	if (ray->x_y_x1_y1[1] < ray->x_y_x1_y1[3])
-		ray->vars.signY = 1;
+		ray->vars.sign_y = 1;
 	else
-		ray->vars.signY = -1;
+		ray->vars.sign_y = -1;
 }
 
 void	draw_line(t_data *data, t_ray *ray, int color)
@@ -30,12 +30,12 @@ void	draw_line(t_data *data, t_ray *ray, int color)
 		if(ray->vars.error_2 > -ray->vars.deltay)
 		{
 			ray->vars.error -= ray->vars.deltay;
-			ray->x_y_x1_y1[0] += ray->vars.signX;
+			ray->x_y_x1_y1[0] += ray->vars.sign_x;
 		}
 		if(ray->vars.error_2 < ray->vars.deltax)
 		{
 			ray->vars.error += ray->vars.deltax;
-			ray->x_y_x1_y1[1] += ray->vars.signY;
+			ray->x_y_x1_y1[1] += ray->vars.sign_y;
 		}
 	}
 }

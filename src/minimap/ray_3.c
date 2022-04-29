@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   malloc_crash_processing.c                          :+:      :+:    :+:   */
+/*   ray_3.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wyholger <wyholger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/29 21:49:09 by wyholger          #+#    #+#             */
-/*   Updated: 2022/04/29 21:49:16 by wyholger         ###   ########.fr       */
+/*   Created: 2022/04/29 21:58:05 by wyholger          #+#    #+#             */
+/*   Updated: 2022/04/29 21:58:06 by wyholger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
-int	check_path_texture(t_data *data)
+int	init_ray_vars(t_data *data, t_ray *ray)
 {
-	if (data->path_no == NULL || data->path_so == NULL || \
-	data->path_we == NULL || data->path_ea == NULL)
-	{
-		free_data_path(data);
-		return (1);
-	}
+	ray->sin_dir = sinf(ray->direction);
+	ray->cos_dir = cosf(ray->direction);
+	ray->step_x = step_init_x(ray);
+	ray->step_y = step_init_y(ray);
+	init_offset(data, ray);
 	return (0);
-}
-
-void	malloc_crash_after_init_data(t_data *data)
-{
-	int	flag;
-
-	flag = check_path_texture(data);
-	if (flag == 1)
-		error(ERR_MALLOC);
 }

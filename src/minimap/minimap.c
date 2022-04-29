@@ -1,22 +1,23 @@
-#include "../../include/cube3d.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minimap.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wyholger <wyholger@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/29 22:27:30 by wyholger          #+#    #+#             */
+/*   Updated: 2022/04/29 22:28:39 by wyholger         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../include/cub3d.h"
 
 void	img_minimap_init(t_data *data, t_img *img, t_img *img_flor)
 {
-	int endian;
-
 	if (data->flag_first_draw_minimap == 0)
 	{
-		img->img = mlx_png_file_to_image(data->mlx.mlx, PATH_IMG_M_MAP, &img->x_sz, &img->y_sz);
-		if (!img->img)
-			exit_after_validate(data, 8);
-		img_flor->img = mlx_png_file_to_image(data->mlx.mlx, PATH_IMG_M_MAP_FLOR, &img->x_sz, &img->y_sz);
-		if (!img_flor->img)
-			exit_after_validate(data, 8);
-		data->imgs.wall.img = mlx_xpm_file_to_image(data->mlx.mlx, PATH_IMG_WALL, &data->imgs.wall.x_sz, &data->imgs.wall.y_sz);
-		if (!data->imgs.wall.img)
-			exit_after_validate(data, 8);
-		data->imgs.wall.size_line = data->imgs.wall.x_sz * 4;
-		data->imgs.wall.adr = mlx_get_data_addr(data->imgs.wall.img, &data->bits_per_pixel,&data->imgs.wall.size_line, &endian);
+		init_minimap_sprite(data, img, img_flor);
+		init_img_for_wall(data);
 		clean_wall(&data->imgs.wall);
 		data->player.x *= (float)img->x_sz;
 		data->player.y *= (float)img->x_sz - 1;
@@ -96,10 +97,10 @@ void	minimap(t_data *data)
 	init_rays(data);
 	while (i < WITH)
 	{
-		ray_computing_cycle_2(data, &data->ray[i]);
+		ray_computing_cycle(data, &data->ray[i]);
 		i++;
 	}
-	printf("stepX = %d; stepY = %d\n", data->ray[499].stepX, data->ray[499].stepY);
+	printf("step_x = %d; step_y = %d\n", data->ray[499].step_x, data->ray[499].step_y);
 	clean_wall(&data->imgs.wall);
 	ray_casting(data);
 	mlx_put_image_to_window(data->mlx.mlx, data->mlx.mlx_win, data->imgs.wall.img, 0, 0);

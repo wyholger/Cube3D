@@ -1,4 +1,16 @@
-#include "../../include/cube3d.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   validate_map.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wyholger <wyholger@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/29 21:42:24 by wyholger          #+#    #+#             */
+/*   Updated: 2022/04/29 21:42:56 by wyholger         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../include/cub3d.h"
 
 void	validate_char(t_data *data, t_list *tmp)
 {
@@ -7,15 +19,15 @@ void	validate_char(t_data *data, t_list *tmp)
 	i = 0;
 	while (tmp->word[i])
 	{
-		if (tmp->word[i] != '1' && tmp->word[i] != '0' &&\
-		tmp->word[i] != 'N' && tmp->word[i] != 'S' &&\
-		tmp->word[i] != 'W' && tmp->word[i] != 'E' &&\
+		if (tmp->word[i] != '1' && tmp->word[i] != '0' && \
+		tmp->word[i] != 'N' && tmp->word[i] != 'S' && \
+		tmp->word[i] != 'W' && tmp->word[i] != 'E' && \
 		tmp->word[i] != ' ')
 		{
 			data->flag_no_valid_char = 1;
 			return ;
 		}
-		if (tmp->word[i] == 'N' || tmp->word[i] == 'S' ||\
+		if (tmp->word[i] == 'N' || tmp->word[i] == 'S' || \
 		tmp->word[i] == 'W' || tmp->word[i] == 'E')
 			data->flag_count_pers++;
 		i++;

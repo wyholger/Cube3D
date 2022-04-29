@@ -1,4 +1,16 @@
-#include "../../include/cube3d.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   exit.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wyholger <wyholger@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/29 21:51:29 by wyholger          #+#    #+#             */
+/*   Updated: 2022/04/29 21:51:44 by wyholger         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../include/cub3d.h"
 
 void	exit_after_validate(t_data *data, int flag_exit)
 {
@@ -26,14 +38,18 @@ void	exit_after_validate(t_data *data, int flag_exit)
 
 void	exit_standard(t_data *data)
 {
-//	(void)data;
-
-//	printf("BLAHHH\n");
 	free_data_path(data);
 	ft_lstclear(&data->map);
 	free(data->ch_map);
 	mlx_destroy_image(data->mlx.mlx, data->imgs.sprite_mini.img);
 	mlx_destroy_image(data->mlx.mlx, data->imgs.sprite_mini_flor.img);
+	mlx_destroy_image(data->mlx.mlx, data->imgs.sky.img);
+	mlx_destroy_image(data->mlx.mlx, data->imgs.flor.img);
+	mlx_destroy_image(data->mlx.mlx, data->imgs.so.img);
+	mlx_destroy_image(data->mlx.mlx, data->imgs.no.img);
+	mlx_destroy_image(data->mlx.mlx, data->imgs.ea.img);
+	mlx_destroy_image(data->mlx.mlx, data->imgs.we.img);
+	mlx_destroy_image(data->mlx.mlx, data->imgs.wall.img);
 	mlx_destroy_window(data->mlx.mlx, data->mlx.mlx_win);
 	exit(0);
 }

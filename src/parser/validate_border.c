@@ -1,8 +1,20 @@
-#include "../../include/cube3d.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   validate_border.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wyholger <wyholger@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/29 21:43:22 by wyholger          #+#    #+#             */
+/*   Updated: 2022/04/29 21:43:44 by wyholger         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../include/cub3d.h"
 
 void	first_validate_border(t_data *data, t_list *tmp_0)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (tmp_0->word[i])
@@ -15,7 +27,7 @@ void	first_validate_border(t_data *data, t_list *tmp_0)
 
 void	zero_check(t_data *data, int i, t_list *tmp_0, t_list *tmp_1)
 {
-	t_list *tmp_2;
+	t_list	*tmp_2;
 
 	tmp_2 = tmp_1->next;
 	if (i == 0 || i == data->max_len_map - 1 || \
@@ -30,7 +42,7 @@ void	zero_check(t_data *data, int i, t_list *tmp_0, t_list *tmp_1)
 
 void	midl_validate_border(t_data *data, t_list *tmp_0, t_list *tmp_1)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (tmp_1->word[i])
@@ -43,7 +55,7 @@ void	midl_validate_border(t_data *data, t_list *tmp_0, t_list *tmp_1)
 
 void	end_validate_border(t_data *data, t_list *tmp_1)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (tmp_1->word[i])

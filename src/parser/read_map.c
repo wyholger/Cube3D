@@ -1,4 +1,16 @@
-#include "../../include/cube3d.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read_map.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wyholger <wyholger@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/29 21:45:31 by wyholger          #+#    #+#             */
+/*   Updated: 2022/04/29 21:47:20 by wyholger         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../include/cub3d.h"
 
 int	check_on_full_properties(t_data *data)
 {
@@ -12,13 +24,13 @@ int	check_on_full_properties(t_data *data)
 
 void	recording_map_properties(t_data *data, char *line)
 {
-	char **for_split;
+	char	**for_split;
 
 	if (ft_strlen(line) == 0)
 		return ;
 	for_split = ft_split(line, ' ');
 	if (ft_strcmp(for_split[0], "NO") == 0)
-		data->path_no = ft_strdup(for_split[1]);			//Не забыть фришнуть в конце.
+		data->path_no = ft_strdup(for_split[1]);
 	else if (ft_strcmp(for_split[0], "SO") == 0)
 		data->path_so = ft_strdup(for_split[1]);
 	else if (ft_strcmp(for_split[0], "WE") == 0)
@@ -32,7 +44,7 @@ void	recording_map_properties(t_data *data, char *line)
 	split_free(for_split);
 }
 
-void recording_data_from_map(t_data *data, char *line)
+void	recording_data_from_map(t_data *data, char *line)
 {
 	if (check_on_full_properties(data))
 		recording_map_properties(data, line);
@@ -51,62 +63,33 @@ void	make_char_map(t_data *data)
 	if (data->ch_map == NULL)
 	{
 		data->flag_malloc_crash = 1;
-		return;
+		return ;
 	}
 	while (tmp)
 	{
-//		data->ch_map[i] = ft_strdup(tmp->word);
 		data->ch_map[i] = tmp->word;
-//		if (data->ch_map[i] == NULL)
-//		{
-//			data->flag_malloc_crash = 1;
-//			return;
-//		}
 		tmp = tmp->next;
 		i++;
 	}
 	data->ch_map[i] = NULL;
-//	printf("BLAHHHHHH\n");
-//	i = 0;
-//	while (data->ch_map[i])
-//	{
-//		printf("%s\n", data->ch_map[i]);
-//		i++;
-//	}
 }
-//void print_len(t_data *data)
-//{
-//	t_list *tmp;
-//
-//	tmp = data->map;
-//	while (tmp)
-//	{
-//		printf("Len = %d\n", (int)ft_strlen (tmp->word));
-//		printf("|%s|\n", tmp->word);
-//		tmp = tmp->next;
-//	}
-//	printf("H = %d\n", data->max_height_map);
-//}
 
-void read_map(t_data *data, char **argv)
+void	read_map(t_data *data, char **argv)
 {
-	int fd;
-	char *line;
+	int		fd;
+	char	*line;
 
 	line = NULL;
 	fd = open_map(argv);
 	while (get_next_line(fd, &line))
 	{
 		recording_data_from_map(data, line);
-//		printf("%s\n", line);
 		free(line);
 	}
 	close(fd);
-//	printf("%s\n", line);
 	recording_data_from_map(data, line);
 	free(line);
 	make_map_is_rectangle(data);
-//	print_len(data);
 	validate_map(data);
 	make_char_map(data);
 	init_color(data);

@@ -1,4 +1,4 @@
-NAME		=	cube3D
+NAME		=	cub3D
 
 SRCS		=	src/main.c\
 				src/parser/color_pars.c\
@@ -22,7 +22,9 @@ SRCS		=	src/main.c\
 				src/raycasting/raycasting.c\
 				src/color_operation/color_operation.c\
 				src/minimap/util.c\
-				src/minimap/ray_2.c
+				src/minimap/ray_2.c\
+				src/minimap/ray_3.c\
+				src/minimap/minimap_util.c
 
 
 HDR			=	include/cube3d.h

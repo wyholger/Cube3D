@@ -1,9 +1,22 @@
-#include "../../include/cube3d.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   make_map_is_rectangle.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wyholger <wyholger@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/29 21:50:18 by wyholger          #+#    #+#             */
+/*   Updated: 2022/04/29 21:50:29 by wyholger         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char *make_string_spase_to_len(t_data *data, int len)
+#include "../../include/cub3d.h"
+
+char	*make_string_spase_to_len(t_data *data, int len)
 {
 	char	*str;
 	int		i;
+
 	str = NULL;
 	str = malloc(len + 1);
 	if (str == NULL)
@@ -28,13 +41,13 @@ void	make_string_is_longer(t_data *data, t_list *list, int len)
 
 	str = make_string_spase_to_len(data, len);
 	if (str == NULL)
-		return;
+		return ;
 	tmp = ft_strjoin(list->word, str);
 	free(str);
 	if (tmp == NULL)
 	{
 		data->flag_malloc_crash = 1;
-		return;
+		return ;
 	}
 	if (list->word != NULL)
 		free(list->word);

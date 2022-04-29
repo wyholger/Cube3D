@@ -1,8 +1,20 @@
-#include "../../include/cube3d.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   color_pars.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wyholger <wyholger@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/29 21:52:24 by wyholger          #+#    #+#             */
+/*   Updated: 2022/04/29 21:53:10 by wyholger         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../include/cub3d.h"
 
 int	check_str_is_int(char *for_split)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (for_split[i])
@@ -17,7 +29,7 @@ int	check_str_is_int(char *for_split)
 int	check_color_is_int(char **for_split)
 {
 	if (check_str_is_int(for_split[0]) == 1 || \
-	check_str_is_int(for_split[1]) == 1|| \
+	check_str_is_int(for_split[1]) == 1 || \
 	check_str_is_int(for_split[2]) == 1)
 		return (1);
 	return (0);
@@ -48,8 +60,8 @@ int	check_valid_color(char **for_split)
 
 void	color_pars(t_data *data, char *str, int f_c_flag)
 {
-	char **for_split;
-	int flag_bad;
+	char	**for_split;
+	int		flag_bad;
 
 	flag_bad = 0;
 	for_split = ft_split(str, ',');

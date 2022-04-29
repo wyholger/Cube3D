@@ -1,4 +1,16 @@
-#include "../../include/cube3d.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wyholger <wyholger@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/29 21:51:00 by wyholger          #+#    #+#             */
+/*   Updated: 2022/04/29 21:51:20 by wyholger         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../include/cub3d.h"
 
 void	split_free(char **str)
 {
@@ -22,7 +34,7 @@ void	free_fol_line(char *str)
 	free(str);
 }
 
-void free_data_path(t_data *data)
+void	free_data_path(t_data *data)
 {
 	free_fol_line(data->path_no);
 	free_fol_line(data->path_so);

@@ -1,6 +1,18 @@
-#include "../../include/cube3d.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   open_map.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wyholger <wyholger@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/29 21:47:42 by wyholger          #+#    #+#             */
+/*   Updated: 2022/04/29 21:48:50 by wyholger         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void check_valid_file_format(char **argv)
+#include "../../include/cub3d.h"
+
+void	check_valid_file_format(char **argv)
 {
 	if (ft_strlen(argv[1]) == 0)
 		error(ERR_FILE_FORMAT);
@@ -8,7 +20,7 @@ void check_valid_file_format(char **argv)
 		error(ERR_FILE_FORMAT);
 }
 
-void check_valid_file_not_directory(char **argv)
+void	check_valid_file_not_directory(char **argv)
 {
 	int	fd;
 
@@ -19,20 +31,15 @@ void check_valid_file_not_directory(char **argv)
 
 int	open_map(char **argv)
 {
-	int fd = -1;
+	int	fd;
 
+	fd = -1;
 	check_valid_file_format(argv);
 	check_valid_file_not_directory(argv);
-//	ft_putstr_fd( argv[1], 2);
-//	ft_putstr_fd( "\n", 2);
-//	char *str = getcwd(NULL, 0);
-//	ft_putstr_fd( str, 2);
-//	ft_putstr_fd( "\n", 2);
-//	printf("map is %s", argv[1]);
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		error(ERR_FILE_OPEN);
 	else
-		return fd;
-	return fd;
+		return (fd);
+	return (fd);
 }

@@ -1,4 +1,16 @@
-#include "../../include/cube3d.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mlx.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wyholger <wyholger@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/29 21:53:20 by wyholger          #+#    #+#             */
+/*   Updated: 2022/04/29 21:53:21 by wyholger         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../include/cub3d.h"
 
 int	key_hook(int key_hook, t_data *data)
 {
@@ -33,7 +45,7 @@ int	key_hook(int key_hook, t_data *data)
 	if (key_hook == LEFT)
 	{
 		data->player.direction += 0.15f;
-		if (data->player.direction > M_PI * 2)
+		if (data->player.direction > PI_2)
 		{
 			data->player.direction = 0.01;
 		}
@@ -43,7 +55,7 @@ int	key_hook(int key_hook, t_data *data)
 		data->player.direction -= 0.15f;
 		if (data->player.direction < 0)
 		{
-			data->player.direction = (M_PI * 2) - 0.01;
+			data->player.direction = PI_2 - 0.01;
 		}
 	}
 	minimap(data);
