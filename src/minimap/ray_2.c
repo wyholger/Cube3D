@@ -20,3 +20,18 @@ void	init_left_sprite_dist(t_data *data, t_ray *ray)
 //		printf("delta_x = %f; x = %d; ray = %f\n", ray->delta_x, ray->x ,ray->left_sprite_dist);
 }
 
+void	draw_rays_on_minimap(t_data *data)
+{
+	int i;
+
+	i = 0;
+	while (i < WITH - 1)
+	{
+		if (data->ray[i].flag_first == 0)
+			draw_line(data, &data->ray[i], 0xF9FE72);
+		else
+			draw_line(data, &data->ray[i], 0xFF0000);
+		i+=2;
+	}
+}
+

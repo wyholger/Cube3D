@@ -148,21 +148,14 @@ void	ray_computing_cycle_2(t_data *data, t_ray *ray)
 			flag_wall = check_wall_horizontal(data, ray, dep_horys);
 			dep_horys++;
 		}
-		if (ray->flag_first == 1)
-		{
-			mlx_pixel_put(data->mlx.mlx, data->mlx.mlx_win, (int) ray->delta_x, (int) ray->delta_y, 0x991103);
-			mlx_pixel_put(data->mlx.mlx, data->mlx.mlx_win, ((int) ray->delta_x) + 1, (int) ray->delta_y, 0x991103);
-			mlx_pixel_put(data->mlx.mlx, data->mlx.mlx_win, (int) ray->delta_x, ((int) ray->delta_y) + 1, 0x991103);
-			mlx_pixel_put(data->mlx.mlx, data->mlx.mlx_win, (int) ray->delta_x, ((int) ray->delta_y) - 1, 0x991103);
-			mlx_pixel_put(data->mlx.mlx, data->mlx.mlx_win, ((int) ray->delta_x) - 1, (int) ray->delta_y, 0x991103);
-
-		}
+//		if (ray->flag_first == 1)
+//		{
+//			mlx_pixel_put(data->mlx.mlx, data->mlx.mlx_win, (int) ray->delta_x, (int) ray->delta_y, 0x991103);
+//			mlx_pixel_put(data->mlx.mlx, data->mlx.mlx_win, ((int) ray->delta_x) + 1, (int) ray->delta_y, 0x991103);
+//			mlx_pixel_put(data->mlx.mlx, data->mlx.mlx_win, (int) ray->delta_x, ((int) ray->delta_y) + 1, 0x991103);
+//			mlx_pixel_put(data->mlx.mlx, data->mlx.mlx_win, (int) ray->delta_x, ((int) ray->delta_y) - 1, 0x991103);
+//			mlx_pixel_put(data->mlx.mlx, data->mlx.mlx_win, ((int) ray->delta_x) - 1, (int) ray->delta_y, 0x991103);
+//		}
 	}
 	init_final_hypotenuse(data, ray);
-	if (ray->flag_first == 0)
-		draw_line(data, ray, 0xF9FE72);
-	else
-		draw_line(data, ray, 0xFF0000);
-
-//	pause();
 }

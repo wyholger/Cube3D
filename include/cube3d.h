@@ -42,7 +42,7 @@
 # define WITH 1000
 # define HEIGHT 600
 # define HEIGHT_2 300
-# define DISTANSE_OF 0.54117299432
+# define DISTANSE_OF 0.83865
 # define RAD_FOR_66_ANGLE 1.15192
 # define ONE_STEP_TEXTURE_Y 9.375
 # define ONE_STEP_TEXTURE_X 15.625
@@ -59,6 +59,7 @@ typedef struct s_var_draw_line
 
 typedef struct s_ray
 {
+	float 	wall_height;
 	float 	direction;
 	int 	stepX;
 	int 	stepY;
@@ -211,6 +212,7 @@ void	draw_line(t_data *data, t_ray *ray, int color);
 void	init_vars_for_draw_line(t_data *data, t_ray *ray);
 void	init_rays(t_data *data);
 void	init_left_sprite_dist(t_data *data, t_ray *ray);
+void	draw_rays_on_minimap(t_data *data);
 
 /* ===END_MINIMAP=== */
 
