@@ -1,5 +1,17 @@
-#ifndef LIBFT_LIBFT_H
-#define LIBFT_LIBFT_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wyholger <wyholger@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/30 19:01:16 by wyholger          #+#    #+#             */
+/*   Updated: 2022/04/30 19:04:24 by wyholger         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef LIBFT_H
+# define LIBFT_H
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -67,7 +79,7 @@ int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strcpy(char *src);
 char	*ft_strtrim_start(char const *s1, char const *set);
 int		ft_search_word_in_str_on_end(char *str, char *word);
-void 	hello(void);
+void	hello(void);
 int		ft_strcmp_end(char *arg_1, char *arg_2);
 int		get_next_line(int fd, char **line);
-#endif //LIBFT_LIBFT_H
+#endif

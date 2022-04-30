@@ -31,8 +31,8 @@ void	check_direction(t_data *data, t_list *list, int i)
 		list->word[j] == 'W' || list->word[j] == 'N')
 		{
 			data->player.direction = data->player.direction + 0.000000000001f;
-			data->player.x = (float)j + 0.5;
-			data->player.y = (float)i - 0.5;
+			data->player.x = (float)j;
+			data->player.y = (float)i - 1;
 			data->player.x_i = j;
 			data->player.y_i = i;
 		}

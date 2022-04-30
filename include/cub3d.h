@@ -6,7 +6,7 @@
 /*   By: wyholger <wyholger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 21:15:33 by wyholger          #+#    #+#             */
-/*   Updated: 2022/04/29 21:34:46 by wyholger         ###   ########.fr       */
+/*   Updated: 2022/04/30 18:26:31 by wyholger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ typedef struct s_var_draw_line
 
 typedef struct s_ray
 {
-	float			 wall_height;
+	float			wall_height;
 	float			wall_h_tmp;
 	float			direction;
 	int				step_x;
@@ -130,6 +130,8 @@ typedef struct s_player
 {
 	float	x;
 	float	y;
+	float	prev_x;
+	float	prev_y;
 	float	offset_x;
 	float	offset_y;
 	int		x_i;
@@ -238,12 +240,26 @@ void	init_img_for_wall(t_data *data);
 void	ray_casting(t_data *data);
 void	ray_computing_cycle(t_data *data, t_ray *ray);
 void	clean_wall(t_img *wall);
+void	init_img_for_flor_sky(t_data *data, t_img *flor, t_img *sky);
+void	init_img_for_texture_wall_no_so(t_data *data);
+void	init_img_for_texture_wall_we_ea(t_data *data);
 
 /* ===END_RAY_CASTING=== */
 
 /* ===MLX=== */
 
 void	mlx_initialise(t_data *data);
+void	hook_s(t_data *data);
+void	hook_a(t_data *data);
+void	hook_d(t_data *data);
+void	hook_left(t_data *data);
+void	hook_right(t_data *data);
+void	hook_w(t_data *data);
+void	return_prev_player_x_y(t_data *data);
+int		check_person_it_wall(t_data *data);
+int		check_person_it_wall_2(t_data *data);
+int		check_person_it_wall_for_point(t_data *data, int x, int y);
+int		shutdown(t_data *data);
 
 /* ===END_MLX=== */
 

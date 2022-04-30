@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcmp_end.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wyholger <wyholger@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/30 18:54:47 by wyholger          #+#    #+#             */
+/*   Updated: 2022/04/30 18:55:38 by wyholger         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int strcmp_end_logic(char *arg_1, char *arg_2, int len_1, int len_2)
+int	strcmp_end_logic(char *arg_1, char *arg_2, int len_1, int len_2)
 {
-	int i;
-	int j;
-	int flag;
+	int	i;
+	int	j;
+	int	flag;
 
 	i = len_1 - len_2;
 	j = 0;
@@ -27,16 +39,16 @@ int strcmp_end_logic(char *arg_1, char *arg_2, int len_1, int len_2)
 
 int	ft_strcmp_end(char *arg_1, char *arg_2)
 {
-	int len_1;
-	int len_2;
-	int flag;
+	int	len_1;
+	int	len_2;
+	int	flag;
 
 	if (arg_1 == NULL || arg_2 == NULL)
-		return -1;
+		return (-1);
 	len_1 = ft_strlen(arg_1);
 	len_2 = ft_strlen(arg_2);
 	if (len_1 == 0 || len_2 == 0)
-		return -1;
+		return (-1);
 	flag = strcmp_end_logic(arg_1, arg_2, len_1, len_2);
 	return (flag);
 }

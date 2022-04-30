@@ -49,6 +49,9 @@ void	midl_validate_border(t_data *data, t_list *tmp_0, t_list *tmp_1)
 	{
 		if (tmp_1->word[i] == '0')
 			zero_check(data, i, tmp_0, tmp_1);
+		if (tmp_1->word[i] == 'N' || tmp_1->word[i] == 'S' \
+		|| tmp_1->word[i] == 'W' ||tmp_1->word[i] == 'E')
+			zero_check(data, i, tmp_0, tmp_1);
 		i++;
 	}
 }

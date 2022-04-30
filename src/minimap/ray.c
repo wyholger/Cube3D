@@ -31,8 +31,6 @@ int	check_wall_horizontal(t_data *data, t_ray *ray, int dep)
 	if (data->ch_map[ray->y][ray->x] == '1')
 	{
 		init_wall_direction_for_horizontal(ray);
-		if (ray->flag_first == 1)
-			printf("X = %d, Y = %d;\n", ray->x, ray->y);
 		init_left_sprite_dist(data, ray);
 		flag_wall = 1;
 	}

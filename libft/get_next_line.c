@@ -1,31 +1,16 @@
-//#include "get_next_line.h"
-#include "libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wyholger <wyholger@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/30 18:58:20 by wyholger          #+#    #+#             */
+/*   Updated: 2022/04/30 19:00:39 by wyholger         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-//char	*ft_strjoin(char const *s1, char const *s2)
-//{
-//	char	*str;
-//	size_t	i;
-//	size_t	o;
-//
-//	i = 0;
-//	o = 0;
-//	if (!s1 || !s2)
-//		return (NULL);
-//	str = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-//	if (!str)
-//		return (NULL);
-//	while (s1[i])
-//	{
-//		str[i] = s1[i];
-//		i++;
-//	}
-//	while (s2[o])
-//	{
-//		str[i++] = s2[o++];
-//	}
-//	str[i] = '\0';
-//	return (str);
-//}
+#include "libft.h"
 
 int	mr_cleaner(char **a)
 {
@@ -42,8 +27,6 @@ char	*check_memder(char *member, char **line)
 	char	*p_n_l;
 	char	*tmp;
 
-	tmp = NULL;
-	(void)tmp;
 	p_n_l = NULL;
 	if (member)
 	{

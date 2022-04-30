@@ -6,7 +6,7 @@
 /*   By: wyholger <wyholger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 17:59:37 by wyholger          #+#    #+#             */
-/*   Updated: 2022/01/11 15:07:57 by wyholger         ###   ########.fr       */
+/*   Updated: 2022/04/30 18:52:41 by wyholger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 void	ft_lstdelone(t_list **lst)
 {
-	t_list *tmp;
-	
+	t_list	*tmp;
+
 	tmp = *lst;
 	if (!lst)
 		return ;
