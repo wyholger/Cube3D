@@ -63,7 +63,7 @@ void	draw_rays_on_minimap(t_data *data)
 			draw_line(data, &data->ray[i], 0xF9FE72);
 		else
 			draw_line(data, &data->ray[i], 0xFF0000);
-		i += 2;
+		i += 50;
 	}
 }
 
