@@ -1,10 +1,9 @@
-NO       sprite/p_a_21.xpm
-
-SO           sprite/p_a_14.xpm
-WE       sprite/p_a_9_photo-resizer.ru.xpm
+NO sprite/p_a_21.xpm
+SO sprite/p_a_14.xpm
+WE sprite/p_a_9_photo-resizer.ru.xpm
 EA sprite/p_a_8_photo-resizer.ru.xpm
-C         20,83,150
-F         225,245,0
+C  20,83,150
+F  225,245,0
 
 
 11111    1111111111111111111111111
