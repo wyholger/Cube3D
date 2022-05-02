@@ -63,7 +63,7 @@
 
 111111111                 - и направление его взгляда.```
 
-Сборка на macOS `make`
+Сборка на macOS make
 
-Запуск `./cub3D maps/map_0.cub`
+Запуск ./cub3D maps/map_0.cub
 
